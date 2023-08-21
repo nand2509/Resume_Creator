@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <title>Resume Generator Application</title>
+</head>
+<body>
+<div class="container" id="cv-form">
+    <center>
+        <h1>Resume Generator</h1>
+        <p>By Nand Kishor Vyas</p>
+     </center>
+     <div class="row"> 
+         <!-- first col -->
+         <div class="col-md-6">
+               <h3>
+                   Personal Information
+                   </h3>
+                   <div class="form-group">
+                        <label for="nameField">Your Name</label>
+                       <input type="text" id="nameField" placeholder="Enter Here" class="form-control">
+                   </div>
+                   <div class="form-group mt-2">
+                    <label for="contactFeild">Your Contact</label>
+                   <input type="text" id="contactField" placeholder="Enter Nuber Here" class="form-control">
+               </div>
+               <div class="form-group mt-2">
+                <label for="addressFeild">Your Address</label>
+               <textarea id="addressField" placeholder="Enter Nuber Here" class="form-control"></textarea>
+           </div>
+           <p class="text-secondary my-3">Important Links</p>
+           <div class="form-group mt-2">
+            <label for="fbFeild">Facebook Link</label>
+           <input type="text" id="fbField" placeholder="Enter Nuber Here" class="form-control">
+       </div>
+       <div class="form-group mt-2">
+        <label for="instaFeild">Instagram Link</label>
+       <input type="text" id="instaField" placeholder="Enter Nuber Here" class="form-control">
+   </div>
+   <div class="form-group mt-2">
+    <label for="linkedFeild">LinkedIn Links</label>
+   <input type="text" id="linkedField" placeholder="Enter Nuber Here" class="form-control">
+</div>  
+
+<div class="form-group mt-2" id="sk">
+    <label for="">Skills</label>
+    <textarea placeholder="Enter Here" class="form-control skField" rows="2"></textarea>
+    <div class="container text-center" id="skAddButton">
+        <button onclick="addNewSKField()" class="btn btn-primary btn-sm">Add</button>
+    </div>
+</div>
+         </div>
+          <!-- second col -->
+         <div class="col-md-6">
+           <h3>
+               Professional Information
+           </h3>
+           <div class="form-group mt-2">
+               <label for="">Objective</label>
+               <textarea id="objectiveField" placeholder="Enter Here" class="form-control weField" rows="5"></textarea>
+           </div>
+           <div class="form-group mt-2" id="we">
+            <label for="">Work Expereince</label>
+            <textarea placeholder="Enter Here" class="form-control weField" rows="5"></textarea>
+            <div class="container text-center">
+                <button onclick="addNewWEField()" class="btn btn-primary btn-sm">Add</button>
+            </div>
+        </div>
+        <div class="form-group mt-2" id="aq">
+            <label for="">Academic Qualification</label>
+            <textarea placeholder="Enter Here" class="form-control eqField" rows="3"></textarea>
+            <div class="container text-center" id="aqAddButton">
+                <button onclick="addNewAQField()" class="btn btn-primary btn-sm">Add</button>
+            </div>
+        </div>
+         </div>
+     </div> 
+     <div class="container text-center mt-3">
+         <button onclick="generateCV()" class="btn btn-primary btn-lg">Generate CV</button>
+     </div>
+</div>
+<!-- cv template -->
+<div class="container" id="cv-template">
+<div class="row">
+    <!-- first column -->
+    <div class="col-md-4 text-center  py-5  background">
+        <img src="https://th.bing.com/th/id/R.2a42d7b274bb96d8cc0976555277bea8?rik=78P3LjqrXSkA5Q&riu=http%3a%2f%2fgetdrawings.com%2ffree-icon%2fcool-profile-icons-69.png&ehk=wSrAuMrucfij0k%2bWLPOJBjzoYz1%2bz4pIUyFZ44rWOzg%3d&risl=&pid=ImgRaw&r=0" alt="" class="img-fluid  myimg"> 
+        <div class="container">
+            <p id="nameT">Nand Kishor Vyas</p>
+            <p id="contactT">+91 9305790731</p>
+            <p id="addressT">Ramnagar varanasi-221008 , INDIA</p>
+
+            <hr />
+            <p><a id="fbT" href="#1">https://www.google.com</a></p>
+            <p><a id="instaT" href="#2">https://www.instagram.com</a></p>
+            <p><a id="linkedT" href="#3">https://www.yahoo.com</a></p>
+            <hr />
+     <!-- skills -->
+            <div class="card mt-4">
+                <div class="card-header back ground">
+                    <h3>Skills</h3>
+                </div>
+                <div class="card-body">
+                    <ul id="skT">
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- second column -->
+    <div class="col-md-8  py-5">
+        <h1 id="nameT2" class="text-center style=font-weight:980">Nand Kishor Vyas</h1>
+
+        <!-- objective card -->
+        <div class="card mt-4">
+            <div class="card-header background">
+                <h3>Objective</h3>
+            </div>
+            <div class="card-body">
+                <p id="objectiveT">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis enim officiis eos deleniti porro, earum quis aliquam culpa quisquam dolor blanditiis reprehenderit id quas commodi ducimus nam ad rerum est?Lorem ipsum dolor sit amet consectetur adipisicing elit. In atque amet nobis, saepe unde mollitia dignissimos laboriosam, facilis, ducimus tempora laborum inventore fuga sequi ipsum a minima asperiores error ullam?
+                </p>
+            </div>
+        </div>
+        <!-- Work Expereince -->
+        <div class="card mt-4">
+            <div class="card-header background">
+                <h3>Work Expereince</h3>
+            </div>
+            <div class="card-body">
+                <ul id="weT">
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Academic Qualification -->
+        <div class="card mt-4">
+            <div class="card-header background">
+                <h3>Academic Qualification</h3>
+            </div>
+            <div class="card-body">
+                <ul id="aqT">
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mt-3 text-center">
+            <button onclick="printCV()" class="btn btn-primary btn-lg">Print CV</button>
+        </div>
+         </div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>
